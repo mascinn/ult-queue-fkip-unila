@@ -1,6 +1,6 @@
 import 'dart:developer' as developer;
+import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:vibration/vibration.dart';
 
 class AudioTtsService {
   static final AudioTtsService _instance = AudioTtsService._internal();
@@ -31,14 +31,12 @@ class AudioTtsService {
     required String counterName,
   }) async {
     try {
-      // 1. Getarkan perangkat jika didukung
-      final hasVibrator = await Vibration.hasVibrator();
-      if (hasVibrator == true) {
-        // Pola getar: Tunggu 0ms, getar 500ms, jeda 200ms, getar 800ms
-        Vibration.vibrate(pattern: [0, 500, 200, 800]);
-      }
+      // 1. Getarkan perangkat menggunakan getaran haptic bawaan Flutter SDK
+      await HapticFeedback.vibrate();
+      await Future.delayed(const Duration(milliseconds: 250));
+      await HapticFeedback.vibrate();
     } catch (e) {
-      developer.log('Vibration error: $e', name: 'AudioTtsService');
+      developer.log('Haptic vibration error: $e', name: 'AudioTtsService');
     }
 
     try {
