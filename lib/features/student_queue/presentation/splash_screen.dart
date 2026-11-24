@@ -93,26 +93,24 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Logo / Ikon Kemahasiswaan
+                  // Logo Resmi FKIP Unila
                   Container(
-                    width: 104,
-                    height: 104,
+                    width: 120,
+                    height: 120,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(28),
+                      shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.18),
-                          blurRadius: 20,
+                          color: Colors.black.withOpacity(0.25),
+                          blurRadius: 24,
                           offset: const Offset(0, 10),
                         ),
                       ],
                     ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.groups_rounded,
-                        size: 54,
-                        color: AppColors.primary,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/images/logo_fkip.png',
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),

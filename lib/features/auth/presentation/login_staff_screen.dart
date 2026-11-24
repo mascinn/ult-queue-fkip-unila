@@ -113,19 +113,24 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Header Icon
+                // Logo FKIP Unila
                 Container(
-                  width: 80,
-                  height: 80,
+                  width: 88,
+                  height: 88,
                   decoration: BoxDecoration(
-                    color: AppColors.primaryLight,
-                    borderRadius: BorderRadius.circular(24),
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withOpacity(0.18),
+                        blurRadius: 16,
+                        offset: const Offset(0, 6),
+                      ),
+                    ],
                   ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.admin_panel_settings_rounded,
-                      size: 42,
-                      color: AppColors.primary,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/logo_fkip.png',
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

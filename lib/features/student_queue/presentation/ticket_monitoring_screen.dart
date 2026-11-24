@@ -336,8 +336,21 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
             ),
             child: Row(
               children: [
-                const Icon(Icons.account_balance_rounded, color: AppColors.accentYellow, size: 22),
-                const SizedBox(width: 10),
+                Container(
+                  width: 32,
+                  height: 32,
+                  margin: const EdgeInsets.only(right: 10),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white,
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/logo_fkip.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

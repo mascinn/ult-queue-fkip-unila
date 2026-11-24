@@ -209,16 +209,35 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        title: Row(
           children: [
-            const Text(
-              'Dashboard Petugas ULT',
-              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
+            Container(
+              width: 32,
+              height: 32,
+              margin: const EdgeInsets.only(right: 8),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+              ),
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/logo_fkip.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            Text(
-              staffUser?.email ?? 'Petugas FKIP Unila',
-              style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.85)),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Dashboard Petugas ULT',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                Text(
+                  staffUser?.email ?? 'Petugas FKIP Unila',
+                  style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.85)),
+                ),
+              ],
             ),
           ],
         ),

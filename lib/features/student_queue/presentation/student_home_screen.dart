@@ -151,23 +151,42 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         elevation: 0,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        title: Row(
           children: [
-            Text(
-              AppConstants.appName,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            Container(
+              width: 36,
+              height: 36,
+              margin: const EdgeInsets.only(right: 10),
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
                 color: Colors.white,
               ),
-            ),
-            Text(
-              AppConstants.appTagline,
-              style: TextStyle(
-                fontSize: 11,
-                color: Colors.white.withOpacity(0.85),
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/logo_fkip.png',
+                  fit: BoxFit.cover,
+                ),
               ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppConstants.appName,
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  AppConstants.appTagline,
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Colors.white.withOpacity(0.9),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
