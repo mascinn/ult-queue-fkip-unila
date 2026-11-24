@@ -6,34 +6,9 @@ allprojects {
 }
 
 rootProject.buildDir = '../build'
+
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-
-subprojects {
-    project.evaluationDependsOn(':app')
-}
-
-// Injeksi fallback flutter properties untuk subprojects/library plugins
-subprojects {
-    project.ext {
-        set("flutter", [
-            compileSdkVersion: 34,
-            minSdkVersion: 21,
-            targetSdkVersion: 34
-        ])
-    }
-    project.plugins.whenPluginAdded { plugin ->
-        if (plugin.class.name.startsWith("com.android.build.gradle")) {
-            try {
-                project.android.extensions.add("flutter", [
-                    compileSdkVersion: 34,
-                    minSdkVersion: 21,
-                    targetSdkVersion: 34
-                ])
-            } catch (Exception ignored) {}
-        }
-    }
 }
 
 tasks.register("clean", Delete) {

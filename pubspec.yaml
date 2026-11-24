@@ -26,9 +26,9 @@ dependencies:
   google_fonts: ^6.2.1
   lucide_icons: ^0.257.0
 
-# Pin app_links to 6.3.2 to prevent Gradle compileSdkVersion evaluation issue
+# Pin app_links ke versi 7.2.2 (latest) yang sudah kompatibel dengan AGP 8.5+
 dependency_overrides:
-  app_links: 6.3.2
+  app_links: 7.2.2
 
 dev_dependencies:
   flutter_test:
