@@ -52,7 +52,7 @@ class UltQueueFkipApp extends StatelessWidget {
           elevation: 0,
           centerTitle: false,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: Colors.white,
           elevation: 0,
           shape: RoundedRectangleBorder(
@@ -60,7 +60,7 @@ class UltQueueFkipApp extends StatelessWidget {
             side: const BorderSide(color: AppColors.cardBorder, width: 1),
           ),
         ),
-        dialogTheme: DialogTheme(
+        dialogTheme: DialogThemeData(
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
