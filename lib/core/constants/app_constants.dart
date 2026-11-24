@@ -8,9 +8,9 @@ class AppConstants {
 
   // Jam Operasional
   static const String operationalDays = 'Senin – Jumat';
-  static const String operationalHours = '08:00 – 15:00 WIB';
+  static const String operationalHours = '08:00 – 16:00 WIB';
   static const int openHour = 8;
-  static const int closeHour = 15;
+  static const int closeHour = 16;
 
   // Daftar Program Studi FKIP Unila (Pilihan Cepat untuk Mahasiswa)
   static const List<String> fkipStudyPrograms = [

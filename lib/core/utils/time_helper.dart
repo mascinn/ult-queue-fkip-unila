@@ -10,7 +10,7 @@ class TimeHelper {
   }
 
   /// Memeriksa apakah saat ini berada dalam rentang jam operasional resmi
-  /// (Senin - Jumat, 08:00 - 15:00 WIB)
+  /// (Senin - Jumat, 08:00 - 16:00 WIB)
   static bool isWithinStandardHours() {
     final now = nowWib;
     // weekday: 1 = Senin, ..., 5 = Jumat, 6 = Sabtu, 7 = Minggu
@@ -20,10 +20,9 @@ class TimeHelper {
   }
 
   /// Menentukan apakah mahasiswa diizinkan mengambil antrean.
-  /// Berdasarkan instruksi, tombol pengambilan tiket SELALU diizinkan (24 jam)
-  /// agar mudah diuji coba/demo kapan saja oleh penguji maupun mahasiswa.
+  /// Hanya diizinkan pada saat jam operasional resmi (08:00 - 16:00 WIB, Senin - Jumat).
   static bool isQueueTakingAllowed() {
-    return true;
+    return isWithinStandardHours();
   }
 
   /// Label status operasional untuk ditampilkan di kartu beranda
@@ -31,7 +30,16 @@ class TimeHelper {
     if (isWithinStandardHours()) {
       return 'Pelayanan Buka';
     } else {
-      return 'Di Luar Jam Layanan (Mode Demo Aktif)';
+      return 'Pelayanan Tutup';
+    }
+  }
+
+  /// Keterangan ringkas status operasional
+  static String getOperatingStatusSubtitle() {
+    if (isWithinStandardHours()) {
+      return 'Loket ULT sedang melayani mahasiswa';
+    } else {
+      return 'Buka kembali ${AppConstants.operationalDays} pukul 08:00 WIB';
     }
   }
 

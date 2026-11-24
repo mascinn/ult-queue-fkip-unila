@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/storage_service.dart';
+import '../../../core/utils/time_helper.dart';
 import '../data/queue_repository.dart';
 import '../models/service_model.dart';
 import 'ticket_monitoring_screen.dart';
@@ -66,6 +67,16 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
   }
 
   Future<void> _submitTicket() async {
+    if (!TimeHelper.isWithinStandardHours()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Pelayanan ULT sedang tutup (Buka Senin–Jumat 08:00–16:00 WIB).'),
+          backgroundColor: AppColors.statusSkipped,
+        ),
+      );
+      return;
+    }
+
     if (!_formKey.currentState!.validate()) return;
     if (_selectedService == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -250,27 +261,27 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                           padding: const EdgeInsets.all(14),
                           decoration: BoxDecoration(
                             color: isSelected ? AppColors.primaryLight : Colors.white,
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(20),
                             border: Border.all(
                               color: isSelected ? AppColors.primary : AppColors.cardBorder,
                               width: isSelected ? 2 : 1,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.02),
-                                blurRadius: 6,
-                                offset: const Offset(0, 2),
+                                color: isSelected ? AppColors.primary.withOpacity(0.08) : Colors.black.withOpacity(0.02),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
                               ),
                             ],
                           ),
                           child: Row(
                             children: [
                               Container(
-                                width: 44,
-                                height: 44,
+                                width: 46,
+                                height: 46,
                                 decoration: BoxDecoration(
                                   color: isSelected ? AppColors.primary : AppColors.primaryLight,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(14),
                                 ),
                                 child: Center(
                                   child: Text(

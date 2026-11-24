@@ -238,16 +238,19 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
     final isOpen = TimeHelper.isWithinStandardHours();
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.cardBorder),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(
+          color: isOpen ? AppColors.primary.withOpacity(0.25) : AppColors.cardBorder,
+          width: 1.2,
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
+            color: AppColors.primary.withOpacity(0.04),
+            blurRadius: 16,
+            offset: const Offset(0, 6),
           ),
         ],
       ),
@@ -257,10 +260,10 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                 decoration: BoxDecoration(
-                  color: isOpen ? AppColors.statusCompletedBg : AppColors.statusWaitingBg,
-                  borderRadius: BorderRadius.circular(20),
+                  color: isOpen ? AppColors.statusCompletedBg : const Color(0xFFF1F5F9),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -269,48 +272,65 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                       width: 8,
                       height: 8,
                       decoration: BoxDecoration(
-                        color: isOpen ? AppColors.statusCompleted : AppColors.statusWaiting,
+                        color: isOpen ? AppColors.statusCompleted : AppColors.textMuted,
                         shape: BoxShape.circle,
                       ),
                     ),
-                    const SizedBox(width: 6),
+                    const SizedBox(width: 7),
                     Text(
                       TimeHelper.getOperatingStatusBadge(),
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: isOpen ? AppColors.statusCompleted : AppColors.statusWaiting,
+                        color: isOpen ? AppColors.statusCompleted : AppColors.textSecondary,
                       ),
                     ),
                   ],
                 ),
               ),
               const Spacer(),
-              Text(
-                TimeHelper.formatTimeWib(DateTime.now()),
-                style: const TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textSecondary,
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: AppColors.background,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  TimeHelper.formatTimeWib(DateTime.now()),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 14),
           const Text(
-            'Selamat Datang di Unit Layanan Terpadu FKIP',
+            'Selamat Datang di ULT FKIP Unila',
             style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
+              fontSize: 16,
+              fontWeight: FontWeight.w800,
               color: AppColors.textPrimary,
+              letterSpacing: -0.2,
             ),
           ),
           const SizedBox(height: 4),
           Text(
-            'Jam Pelayanan: ${TimeHelper.getOperatingHoursDescription()}',
-            style: const TextStyle(
+            TimeHelper.getOperatingStatusSubtitle(),
+            style: TextStyle(
               fontSize: 12,
-              color: AppColors.textSecondary,
+              fontWeight: FontWeight.w500,
+              color: isOpen ? AppColors.primary : AppColors.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Jadwal: ${TimeHelper.getOperatingHoursDescription()}',
+            style: const TextStyle(
+              fontSize: 11,
+              color: AppColors.textMuted,
             ),
           ),
         ],
@@ -357,16 +377,23 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
               return Expanded(
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                   decoration: BoxDecoration(
                     color: currentTicket != null ? AppColors.primaryLight : Colors.white,
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(18),
                     border: Border.all(
                       color: currentTicket != null
-                          ? AppColors.primary.withOpacity(0.5)
+                          ? AppColors.primary.withOpacity(0.4)
                           : AppColors.cardBorder,
                       width: currentTicket != null ? 1.5 : 1,
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.02),
+                        blurRadius: 8,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
                   ),
                   child: Column(
                     children: [
@@ -411,30 +438,36 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
   }
 
   Widget _buildMainActionButtons() {
+    final isOpen = TimeHelper.isWithinStandardHours();
+
     return Column(
       children: [
         // Tombol Ambil Antrean (Utama)
         SizedBox(
           width: double.infinity,
-          height: 54,
+          height: 56,
           child: ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.primary,
+              backgroundColor: isOpen ? AppColors.primary : const Color(0xFF94A3B8),
               foregroundColor: Colors.white,
-              elevation: 2,
+              elevation: 0,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(18),
               ),
             ),
             icon: const Icon(Icons.confirmation_number_rounded, size: 22),
-            label: const Text(
-              'Ambil Nomor Antrean',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            label: Text(
+              isOpen ? 'Ambil Nomor Antrean' : 'Pelayanan Tutup (Buka 08:00 WIB)',
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => const TakeQueueScreen()),
-              );
+              if (isOpen) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const TakeQueueScreen()),
+                );
+              } else {
+                _showClosedNoticeDialog();
+              }
             },
           ),
         ),
@@ -444,24 +477,79 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
         // Tombol Cek Antrean Saya
         SizedBox(
           width: double.infinity,
-          height: 48,
+          height: 50,
           child: OutlinedButton.icon(
             style: OutlinedButton.styleFrom(
               foregroundColor: AppColors.primary,
-              side: const BorderSide(color: AppColors.primary, width: 1.5),
+              side: const BorderSide(color: AppColors.cardBorder, width: 1.5),
+              backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(18),
               ),
             ),
             icon: const Icon(Icons.search_rounded, size: 20),
             label: const Text(
-              'Cek Antrean Saya',
+              'Cek Status Antrean Saya',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
             ),
             onPressed: _checkMyTicket,
           ),
         ),
       ],
+    );
+  }
+
+  void _showClosedNoticeDialog() {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        title: const Row(
+          children: [
+            Icon(Icons.schedule_rounded, color: AppColors.primary, size: 24),
+            SizedBox(width: 10),
+            Text('Pelayanan Tutup', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Unit Layanan Terpadu (ULT) FKIP Unila saat ini berada di luar jam operasional resmi.',
+              style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
+            ),
+            const SizedBox(height: 14),
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: AppColors.primaryLight,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Jadwal Resmi Pelayanan:',
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.primary),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${AppConstants.operationalDays}, ${AppConstants.operationalHours}',
+                    style: const TextStyle(fontSize: 12, color: AppColors.textPrimary),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Mengerti', style: TextStyle(fontWeight: FontWeight.bold)),
+          ),
+        ],
+      ),
     );
   }
 
@@ -480,40 +568,47 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
           'Layanan Administrasi ULT FKIP',
           style: TextStyle(
             fontSize: 15,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w800,
             color: AppColors.textPrimary,
           ),
         ),
         const SizedBox(height: 12),
         ...services.map((s) => Container(
               margin: const EdgeInsets.only(bottom: 10),
-              padding: const EdgeInsets.all(12),
+              padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(18),
                 border: Border.all(color: AppColors.cardBorder),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.015),
+                    blurRadius: 8,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
                   Container(
-                    width: 36,
-                    height: 36,
+                    width: 40,
+                    height: 40,
                     decoration: BoxDecoration(
                       color: AppColors.primaryLight,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
                       child: Text(
                         s['code']!,
                         style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
                           color: AppColors.primary,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 14),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -522,10 +617,11 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                           s['name']!,
                           style: const TextStyle(
                             fontSize: 13,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w700,
                             color: AppColors.textPrimary,
                           ),
                         ),
+                        const SizedBox(height: 2),
                         Text(
                           s['desc']!,
                           style: const TextStyle(

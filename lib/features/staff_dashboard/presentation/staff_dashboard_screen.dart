@@ -319,7 +319,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(22),
         border: Border.all(
           color: serving != null ? AppColors.primary : AppColors.cardBorder,
           width: serving != null ? 2 : 1,
@@ -391,12 +391,13 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
             const SizedBox(height: 16),
             SizedBox(
               width: double.infinity,
-              height: 50,
+              height: 52,
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 ),
                 icon: const Icon(Icons.volume_up_rounded, size: 20),
                 label: const Text(

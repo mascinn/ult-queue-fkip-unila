@@ -312,13 +312,13 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(26),
         border: Border.all(color: AppColors.cardBorder),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 16,
-            offset: const Offset(0, 8),
+            color: AppColors.primary.withOpacity(0.06),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
           ),
         ],
       ),
@@ -326,12 +326,12 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
         children: [
           // Header Kartu
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 18),
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
             decoration: const BoxDecoration(
               color: AppColors.primary,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(19),
-                topRight: Radius.circular(19),
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
               ),
             ),
             child: Row(
@@ -397,12 +397,12 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
                   decoration: BoxDecoration(
                     color: AppColors.primaryLight,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
                     ticket.queueNumber,
                     style: const TextStyle(
-                      fontSize: 52,
+                      fontSize: 54,
                       fontWeight: FontWeight.w900,
                       color: AppColors.primary,
                       letterSpacing: 2,
@@ -414,10 +414,10 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
 
                 // Status Badge
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 7),
                   decoration: BoxDecoration(
                     color: AppColors.getStatusBgColor(ticket.status),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(30),
                     border: Border.all(
                       color: AppColors.getStatusColor(ticket.status).withOpacity(0.4),
                     ),
