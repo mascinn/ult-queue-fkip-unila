@@ -26,6 +26,10 @@ dependencies:
   google_fonts: ^6.2.1
   lucide_icons: ^0.257.0
 
+# Pin app_links to 6.3.2 to prevent Gradle compileSdkVersion evaluation issue
+dependency_overrides:
+  app_links: 6.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
