@@ -8,7 +8,8 @@ import '../models/service_model.dart';
 import 'ticket_monitoring_screen.dart';
 
 class TakeQueueScreen extends StatefulWidget {
-  const TakeQueueScreen({super.key});
+  final String? initialServiceId;
+  const TakeQueueScreen({super.key, this.initialServiceId});
 
   @override
   State<TakeQueueScreen> createState() => _TakeQueueScreenState();
@@ -52,7 +53,14 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
       setState(() {
         _services = services;
         if (_services.isNotEmpty) {
-          _selectedService = _services.first;
+          if (widget.initialServiceId != null) {
+            _selectedService = _services.firstWhere(
+              (s) => s.id == widget.initialServiceId,
+              orElse: () => _services.first,
+            );
+          } else {
+            _selectedService = _services.first;
+          }
         }
         _isLoadingServices = false;
       });
