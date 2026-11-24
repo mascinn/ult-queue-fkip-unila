@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
@@ -92,7 +91,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 hintText: 'Contoh: 2113025001',
-                prefixIcon: const Icon(LucideIcons.creditCard, size: 20),
+                prefixIcon: const Icon(Icons.badge_outlined, size: 20),
                 filled: true,
                 fillColor: AppColors.primaryLight.withOpacity(0.4),
                 border: OutlineInputBorder(
@@ -175,7 +174,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
         actions: [
           IconButton(
             tooltip: 'Login Petugas ULT',
-            icon: const Icon(LucideIcons.shieldCheck, color: AppColors.accentYellow),
+            icon: const Icon(Icons.admin_panel_settings_rounded, color: AppColors.accentYellow),
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => const LoginStaffScreen()),
@@ -306,7 +305,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
       children: [
         const Row(
           children: [
-            Icon(LucideIcons.radio, size: 18, color: AppColors.primary),
+            Icon(Icons.sensors_rounded, size: 18, color: AppColors.primary),
             SizedBox(width: 8),
             Text(
               'Sedang Dilayani di Loket',
@@ -408,7 +407,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                 borderRadius: BorderRadius.circular(14),
               ),
             ),
-            icon: const Icon(LucideIcons.ticket, size: 22),
+            icon: const Icon(Icons.confirmation_number_rounded, size: 22),
             label: const Text(
               'Ambil Nomor Antrean',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
@@ -435,7 +434,7 @@ class _StudentHomeScreenState extends State<StudentHomeScreen> {
                 borderRadius: BorderRadius.circular(14),
               ),
             ),
-            icon: const Icon(LucideIcons.search, size: 20),
+            icon: const Icon(Icons.search_rounded, size: 20),
             label: const Text(
               'Cek Antrean Saya',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),

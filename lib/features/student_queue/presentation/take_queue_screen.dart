@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/storage_service.dart';
@@ -89,7 +88,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Row(
           children: [
-            Icon(LucideIcons.helpCircle, color: AppColors.primary, size: 24),
+            Icon(Icons.help_outline_rounded, color: AppColors.primary, size: 24),
             SizedBox(width: 10),
             Text('Konfirmasi Antrean', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           ],
@@ -233,7 +232,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                     // Step 1: Pilih Jenis Layanan
                     const Row(
                       children: [
-                        Icon(LucideIcons.layers, size: 18, color: AppColors.primary),
+                        Icon(Icons.layers_rounded, size: 18, color: AppColors.primary),
                         SizedBox(width: 8),
                         Text(
                           'Langkah 1: Pilih Jenis Layanan',
@@ -308,7 +307,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                                 ),
                               ),
                               if (isSelected)
-                                const Icon(LucideIcons.checkCircle2, color: AppColors.primary, size: 22),
+                                const Icon(Icons.check_circle_rounded, color: AppColors.primary, size: 22),
                             ],
                           ),
                         ),
@@ -320,7 +319,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                     // Step 2: Form Data Diri Mahasiswa
                     const Row(
                       children: [
-                        Icon(LucideIcons.userCheck, size: 18, color: AppColors.primary),
+                        Icon(Icons.person_outline_rounded, size: 18, color: AppColors.primary),
                         SizedBox(width: 8),
                         Text(
                           'Langkah 2: Data Mahasiswa FKIP',
@@ -336,7 +335,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                       decoration: InputDecoration(
                         labelText: 'Nama Lengkap Mahasiswa',
                         hintText: 'Contoh: Ahmad Fauzi',
-                        prefixIcon: const Icon(LucideIcons.user, size: 20),
+                        prefixIcon: const Icon(Icons.person_outline_rounded, size: 20),
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -361,7 +360,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                       decoration: InputDecoration(
                         labelText: 'NPM (Nomor Pokok Mahasiswa)',
                         hintText: 'Contoh: 2113025001',
-                        prefixIcon: const Icon(LucideIcons.creditCard, size: 20),
+                        prefixIcon: const Icon(Icons.badge_outlined, size: 20),
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -388,7 +387,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                       isExpanded: true,
                       decoration: InputDecoration(
                         labelText: 'Program Studi FKIP',
-                        prefixIcon: const Icon(LucideIcons.graduationCap, size: 20),
+                        prefixIcon: const Icon(Icons.school_outlined, size: 20),
                         filled: true,
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
@@ -441,7 +440,7 @@ class _TakeQueueScreenState extends State<TakeQueueScreen> {
                                   valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                                 ),
                               )
-                            : const Icon(LucideIcons.ticket, size: 20),
+                            : const Icon(Icons.confirmation_number_rounded, size: 20),
                         label: Text(
                           _isSubmitting ? 'Memproses Nomor Antrean...' : 'Konfirmasi & Ambil Nomor',
                           style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),

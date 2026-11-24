@@ -41,9 +41,14 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
-          flutter build apk --release \
-            --dart-define=SUPABASE_URL="${SUPABASE_URL}" \
-            --dart-define=SUPABASE_ANON_KEY="${SUPABASE_ANON_KEY}"
+          BUILD_ARGS=""
+          if [ -n "${SUPABASE_URL}" ]; then
+            BUILD_ARGS="${BUILD_ARGS} --dart-define=SUPABASE_URL=${SUPABASE_URL}"
+          fi
+          if [ -n "${SUPABASE_ANON_KEY}" ]; then
+            BUILD_ARGS="${BUILD_ARGS} --dart-define=SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}"
+          fi
+          flutter build apk --release ${BUILD_ARGS}
 
       - name: Upload Release APK Artifact
         uses: actions/upload-artifact@v4

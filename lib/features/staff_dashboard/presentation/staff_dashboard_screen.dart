@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
@@ -238,13 +237,13 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
               ),
               child: Row(
                 children: [
-                  const Icon(LucideIcons.mapPin, size: 14, color: AppColors.textPrimary),
+                  const Icon(Icons.location_on_outlined, size: 14, color: AppColors.textPrimary),
                   const SizedBox(width: 4),
                   Text(
                     _selectedCounter,
                     style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: AppColors.textPrimary),
                   ),
-                  const Icon(LucideIcons.chevronDown, size: 14, color: AppColors.textPrimary),
+                  const Icon(Icons.keyboard_arrow_down_rounded, size: 14, color: AppColors.textPrimary),
                 ],
               ),
             ),
@@ -257,7 +256,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
           ),
           IconButton(
             tooltip: 'Logout',
-            icon: const Icon(LucideIcons.logOut, size: 20, color: Colors.white),
+            icon: const Icon(Icons.logout_rounded, size: 20, color: Colors.white),
             onPressed: _handleLogout,
           ),
         ],
@@ -322,7 +321,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
             children: [
               Row(
                 children: [
-                  const Icon(LucideIcons.radio, size: 18, color: AppColors.primary),
+                  const Icon(Icons.sensors_rounded, size: 18, color: AppColors.primary),
                   const SizedBox(width: 8),
                   Text(
                     'Antrean di $_selectedCounter',
@@ -359,7 +358,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
               ),
               child: const Row(
                 children: [
-                  Icon(LucideIcons.info, size: 20, color: AppColors.textSecondary),
+                  Icon(Icons.info_outline_rounded, size: 20, color: AppColors.textSecondary),
                   SizedBox(width: 10),
                   Expanded(
                     child: Text(
@@ -380,7 +379,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
-                icon: const Icon(LucideIcons.volume2, size: 20),
+                icon: const Icon(Icons.volume_up_rounded, size: 20),
                 label: const Text(
                   'PANGGIL ANTREAN BERIKUTNYA',
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
@@ -448,7 +447,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
                       side: const BorderSide(color: AppColors.primary),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     ),
-                    icon: const Icon(LucideIcons.volume2, size: 16),
+                    icon: const Icon(Icons.volume_up_rounded, size: 16),
                     label: const Text('Panggil Ulang', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
                     onPressed: () => _updateCurrentStatus('called'),
                   ),
@@ -464,7 +463,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       ),
-                      icon: const Icon(LucideIcons.userCheck, size: 16),
+                      icon: const Icon(Icons.person_outline_rounded, size: 16),
                       label: const Text('Mulai Layani', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
                       onPressed: () => _updateCurrentStatus('in_service'),
                     ),
@@ -477,7 +476,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                       ),
-                      icon: const Icon(LucideIcons.checkCheck, size: 16),
+                      icon: const Icon(Icons.done_all_rounded, size: 16),
                       label: const Text('Selesai', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
                       onPressed: () => _updateCurrentStatus('completed'),
                     ),
@@ -492,7 +491,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
                     backgroundColor: AppColors.statusSkippedBg,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
-                  icon: const Icon(LucideIcons.userX, color: AppColors.statusSkipped, size: 18),
+                  icon: const Icon(Icons.person_off_outlined, color: AppColors.statusSkipped, size: 18),
                   onPressed: () => _updateCurrentStatus('skipped'),
                 ),
               ],
@@ -578,7 +577,7 @@ class _StaffDashboardScreenState extends State<StaffDashboardScreen> {
         ),
         child: const Column(
           children: [
-            Icon(LucideIcons.inbox, size: 36, color: AppColors.textMuted),
+            Icon(Icons.inbox_rounded, size: 36, color: AppColors.textMuted),
             SizedBox(height: 8),
             Text(
               'Belum ada antrean untuk filter ini.',

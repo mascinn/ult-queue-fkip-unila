@@ -40,7 +40,6 @@ class UltQueueFkipApp extends StatelessWidget {
           seedColor: AppColors.primary,
           primary: AppColors.primary,
           secondary: AppColors.accentYellow,
-          background: AppColors.background,
           surface: AppColors.surface,
         ),
         textTheme: GoogleFonts.plusJakartaSansTextTheme(

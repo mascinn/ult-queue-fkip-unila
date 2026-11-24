@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
@@ -102,7 +101,7 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(LucideIcons.arrowLeft, color: AppColors.textPrimary),
+          icon: const Icon(Icons.arrow_back_rounded, color: AppColors.textPrimary),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -124,7 +123,7 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
                   ),
                   child: const Center(
                     child: Icon(
-                      LucideIcons.shieldCheck,
+                      Icons.admin_panel_settings_rounded,
                       size: 42,
                       color: AppColors.primary,
                     ),
@@ -156,7 +155,7 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
                   decoration: InputDecoration(
                     labelText: 'Email Petugas ULT',
                     hintText: 'petugas@fkip.unila.ac.id',
-                    prefixIcon: const Icon(LucideIcons.mail, size: 20),
+                    prefixIcon: const Icon(Icons.email_outlined, size: 20),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
@@ -183,10 +182,10 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
                   obscureText: _obscurePassword,
                   decoration: InputDecoration(
                     labelText: 'Password Akun',
-                    prefixIcon: const Icon(LucideIcons.lock, size: 20),
+                    prefixIcon: const Icon(Icons.lock_outline_rounded, size: 20),
                     suffixIcon: IconButton(
                       icon: Icon(
-                        _obscurePassword ? LucideIcons.eyeOff : LucideIcons.eye,
+                        _obscurePassword ? Icons.visibility_off_outlined : Icons.visibility_outlined,
                         size: 20,
                       ),
                       onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
@@ -248,7 +247,7 @@ class _LoginStaffScreenState extends State<LoginStaffScreen> {
                   ),
                   child: const Row(
                     children: [
-                      Icon(LucideIcons.info, size: 18, color: AppColors.primary),
+                      Icon(Icons.info_outline_rounded, size: 18, color: AppColors.primary),
                       SizedBox(width: 10),
                       Expanded(
                         child: Text(

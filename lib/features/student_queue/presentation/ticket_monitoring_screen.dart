@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
@@ -115,7 +114,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
                 color: AppColors.statusCalledBg,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(LucideIcons.bellRing, color: AppColors.statusCalled, size: 48),
+              child: const Icon(Icons.notifications_active_rounded, color: AppColors.statusCalled, size: 48),
             ),
             const SizedBox(height: 18),
             const Text(
@@ -219,7 +218,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(LucideIcons.alertCircle, size: 48, color: AppColors.statusSkipped),
+              const Icon(Icons.warning_amber_rounded, size: 48, color: AppColors.statusSkipped),
               const SizedBox(height: 16),
               const Text('Data tiket antrean tidak ditemukan.'),
               const SizedBox(height: 16),
@@ -247,7 +246,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
         actions: [
           IconButton(
             tooltip: 'Perbarui Data',
-            icon: const Icon(LucideIcons.refreshCw, size: 20, color: Colors.white),
+            icon: const Icon(Icons.refresh_rounded, size: 20, color: Colors.white),
             onPressed: _loadTicketDetails,
           ),
         ],
@@ -277,7 +276,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                   ),
-                  icon: const Icon(LucideIcons.checkCheck, size: 20),
+                  icon: const Icon(Icons.check_circle_rounded, size: 20),
                   label: const Text('Selesai & Tutup Tiket Ini', style: TextStyle(fontWeight: FontWeight.bold)),
                   onPressed: _clearAndGoHome,
                 ),
@@ -292,7 +291,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
                     side: const BorderSide(color: AppColors.cardBorder),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                   ),
-                  icon: const Icon(LucideIcons.home, size: 18),
+                  icon: const Icon(Icons.home_rounded, size: 18),
                   label: const Text('Kembali ke Beranda (Tetap Pantau)'),
                   onPressed: () {
                     Navigator.of(context).pushAndRemoveUntil(
@@ -337,7 +336,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
             ),
             child: Row(
               children: [
-                const Icon(LucideIcons.landmark, color: AppColors.accentYellow, size: 22),
+                const Icon(Icons.account_balance_rounded, color: AppColors.accentYellow, size: 22),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Column(
@@ -467,7 +466,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
         ),
         child: Column(
           children: [
-            const Icon(LucideIcons.volume2, color: AppColors.statusCalled, size: 32),
+            const Icon(Icons.volume_up_rounded, color: AppColors.statusCalled, size: 32),
             const SizedBox(height: 10),
             Text(
               ticket.isCalled ? 'PANGGILAN LOKET AKTIF' : 'SEDANG DILAYANI DI LOKET',
@@ -505,7 +504,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(LucideIcons.clock, size: 18, color: AppColors.statusWaiting),
+                Icon(Icons.access_time_rounded, size: 18, color: AppColors.statusWaiting),
                 SizedBox(width: 8),
                 Text(
                   'Sedang Dalam Antrean',
@@ -551,7 +550,7 @@ class _TicketMonitoringScreenState extends State<TicketMonitoringScreen> {
         ),
         child: const Column(
           children: [
-            Icon(LucideIcons.checkCircle2, color: AppColors.statusCompleted, size: 36),
+            Icon(Icons.check_circle_rounded, color: AppColors.statusCompleted, size: 36),
             SizedBox(height: 8),
             Text(
               'Pelayanan Telah Selesai',

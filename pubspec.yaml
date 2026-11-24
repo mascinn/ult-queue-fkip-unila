@@ -18,13 +18,11 @@ dependencies:
 
   # Voice & Audio Notification
   flutter_tts: ^4.2.1
-  audioplayers: ^6.1.0
   vibration: ^2.0.1
 
   # UI, Icons, Fonts & Date Formatting
   intl: ^0.19.0
   google_fonts: ^6.2.1
-  lucide_icons: ^0.257.0
 
 # Pin app_links ke versi 7.2.2 (latest) yang sudah kompatibel dengan AGP 8.5+
 dependency_overrides:

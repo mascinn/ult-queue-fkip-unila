@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_constants.dart';
 import '../../../core/services/storage_service.dart';
@@ -111,7 +110,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     ),
                     child: const Center(
                       child: Icon(
-                        LucideIcons.users,
+                        Icons.groups_rounded,
                         size: 54,
                         color: AppColors.primary,
                       ),
